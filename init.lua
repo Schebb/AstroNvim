@@ -19,3 +19,12 @@ astronvim.conditional_func(astronvim.user_plugin_opts("polish", nil, false))
 if vim.fn.has "nvim-0.8" ~= 1 or vim.version().prerelease then
   vim.schedule(function() astronvim.notify("Unsupported Neovim Version! Please check the requirements", "error") end)
 end
+
+if vim.g.neovide == true then
+    -- vim.cmd 'set guifont=Hack\ NF:h10'
+    -- vim.o.guifont='Consolas:h10'
+    -- vim.o.guifont='FiraCode NF:h14'
+    vim.o.guifont='Operator Mono,FiraCode NF:h14'
+    vim.api.nvim_set_keymap('n', '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
+    vim.wo.wrap = true
+end
